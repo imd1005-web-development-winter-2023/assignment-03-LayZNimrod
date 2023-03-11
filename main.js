@@ -3,42 +3,62 @@
 //  You may remove the code below - it's just boilerplate
 //
 
-//
-// Variables
-//
-
-// Constants
-const appID = "app";
-const headingText = "To do. To done. ✅";
-
-// Variables
-
-// DOM Elements
-let appContainer = document.getElementById(appID);
+// Array of pokemons that are provided by the user
+const pokemons = [];
+// The ul for the list of pokemon
+const pokeList = document.querySelector(".todo-items");
+// The form where we intake pokemon
+const pokeForm = document.querySelector(".add-todo");
+// The form text element that has the name the user provided
+const pokeName = document.querySelector("#Todo-Label");
 
 //
-// Functions
+// FUNCTIONS
 //
 
-// Add a heading to the app container
-function inititialise() {
-  // If anything is wrong with the app container then end
-  if (!appContainer) {
-    console.error("Error: Could not find app contianer");
-    return;
+// Handle the event when a user submits the form
+function addTodoItem(e) {
+  // Stop browser default form submission
+  e.preventDefault();
+  // Get the text from the input field
+  const pokemonName = pokeName.value;
+  // Add the user defined pokemon to our array
+  pokemons.push(pokemonName);
+  // Draw the list of pokemons
+  renderList(pokemons, pokeList);
+  // Reset the form so that the text field name is cleared
+  pokeForm.reset();
+}
+
+// Draw the list of items
+// Step 1: remove all of the children in the UL list
+// Step 2: for each entry in the array add the array item to the list
+function renderList(items, itemsList) {
+  // Clear all of the entries in the list
+  while (itemsList.firstChild) {
+    itemsList.removeChild(itemsList.firstChild);
   }
 
-  // Create an h1 and add it to our app
-  const h1 = document.createElement("h1");
-  h1.innerText = headingText;
-  appContainer.appendChild(h1);
-
-  // Init complete
-  console.log("App successfully initialised");
+  // For each item in the list add a list item
+  for (let i = 0; i < items.length; i++) {
+    // Create the list item and add the text
+    const listItem = document.createElement("li");
+    listItem.textContent = items[i];
+    // On the last item in the list, add the annimation class
+    if (i === items.length - 1) {
+      listItem.classList.add("new-item-annimate");
+    }
+    // Add the list item to the list
+    itemsList.appendChild(listItem);
+  }
 }
 
 //
-// Inits & Event Listeners
+// EVENT LISTENERS AND INITIALISION
 //
 
-inititialise();
+// Add the submit form handler
+pokeForm.addEventListener("submit", addTodoItem);
+
+// Draw the list
+renderList(pokemons, pokeList);
