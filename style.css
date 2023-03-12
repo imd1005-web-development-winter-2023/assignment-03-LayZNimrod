@@ -53,3 +53,8 @@ main {
   white-space: nowrap;
   border-width: 0;
 }
+
+button{
+  border-color: #1d3557;
+  border: 80px;
+}

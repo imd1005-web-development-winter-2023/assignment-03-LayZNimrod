@@ -4,13 +4,13 @@
 //
 
 // Array of pokemons that are provided by the user
-const pokemons = [];
-// The ul for the list of pokemon
-const pokeList = document.querySelector(".todo-items");
-// The form where we intake pokemon
-const pokeForm = document.querySelector(".add-todo");
+const todoArray = [];
+// The ul for the list of todo item
+const todoList = document.querySelector(".todo-items");
+// The form where we intake todo item
+const todoForm = document.querySelector(".add-todo");
 // The form text element that has the name the user provided
-const pokeName = document.querySelector("#Todo-Label");
+const todoName = document.querySelector("#todo-label");
 
 //
 // FUNCTIONS
@@ -21,13 +21,13 @@ function addTodoItem(e) {
   // Stop browser default form submission
   e.preventDefault();
   // Get the text from the input field
-  const pokemonName = pokeName.value;
+  const pokemonName = todoName.value;
   // Add the user defined pokemon to our array
-  pokemons.push(pokemonName);
+  todoArray.push(pokemonName);
   // Draw the list of pokemons
-  renderList(pokemons, pokeList);
+  renderList(todoArray, todoList);
   // Reset the form so that the text field name is cleared
-  pokeForm.reset();
+  todoForm.reset();
 }
 
 // Draw the list of items
@@ -43,14 +43,26 @@ function renderList(items, itemsList) {
   for (let i = 0; i < items.length; i++) {
     // Create the list item and add the text
     const listItem = document.createElement("li");
+    const buttonItem= document.createElement("button");
     listItem.textContent = items[i];
     // On the last item in the list, add the annimation class
     if (i === items.length - 1) {
       listItem.classList.add("new-item-annimate");
     }
     // Add the list item to the list
-    itemsList.appendChild(listItem);
+    itemsList.appendChild(listItem,buttonItem);
   }
+}
+
+function listClickHander(event) {
+  // Check if the click event is from a button or something else
+  if (event.target.nodeName !== "BUTTON") {
+    return;
+  }
+
+  const indexFromDataAttribute = event.target.dataset.pokemon;
+
+  itemsList.textContent = indexFromDataAttribute;
 }
 
 //
@@ -58,7 +70,10 @@ function renderList(items, itemsList) {
 //
 
 // Add the submit form handler
-pokeForm.addEventListener("submit", addTodoItem);
+todoForm.addEventListener("click", listClickHander);
+
+// Add the submit form handler
+todoForm.addEventListener("submit", addTodoItem);
 
 // Draw the list
-renderList(pokemons, pokeList);
+renderList(todoArray, todoList);
