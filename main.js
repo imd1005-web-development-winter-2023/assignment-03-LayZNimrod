@@ -34,7 +34,7 @@ function addTodoItem(e) {
 
 function listClickHander(event) {
   // Check if the click event is from a button or something else
-  if (event.target.type !== "button") {
+  if (event.target.type !== "BUTTON") {
     return;
   }
   console.log(hello);
