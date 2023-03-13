@@ -12,6 +12,8 @@ const todoForm = document.querySelector(".add-todo");
 // The form text element that has the name the user provided
 const todoName = document.querySelector("#todo-label");
 
+const message = document.querySelector(".message");
+
 //
 // FUNCTIONS
 //
@@ -21,13 +23,24 @@ function addTodoItem(e) {
   // Stop browser default form submission
   e.preventDefault();
   // Get the text from the input field
-  const pokemonName = todoName.value;
+  const listEntry = todoName.value;
   // Add the user defined pokemon to our array
-  todoArray.push(pokemonName);
+  todoArray.push(listEntry);
   // Draw the list of pokemons
   renderList(todoArray, todoList);
   // Reset the form so that the text field name is cleared
   todoForm.reset();
+}
+
+function listClickHander(event) {
+  // Check if the click event is from a button or something else
+  if (event.target.type !== "submit") {
+    return;
+  }
+
+  const indexFromDataAttribute = event.target.dataset.itemIndex;
+
+  message.textContent = indexFromDataAttribute;
 }
 
 // Draw the list of items
@@ -45,35 +58,31 @@ function renderList(items, itemsList) {
     const listItem = document.createElement("li");
     const buttonItem= document.createElement("button");
     listItem.textContent = items[i];
+    buttonItem.type="submit";
+    buttonItem.id="todo";
+    buttonItem.textContent="button "+i;
+    buttonItem.value="button "+i;
+    buttonItem.dataset.itemIndex = i;
     // On the last item in the list, add the annimation class
     if (i === items.length - 1) {
       listItem.classList.add("new-item-annimate");
     }
     // Add the list item to the list
-    itemsList.appendChild(listItem,buttonItem);
+    itemsList.appendChild(listItem);
+    itemsList.appendChild(buttonItem);
   }
 }
 
-function listClickHander(event) {
-  // Check if the click event is from a button or something else
-  if (event.target.nodeName !== "BUTTON") {
-    return;
-  }
-
-  const indexFromDataAttribute = event.target.dataset.pokemon;
-
-  itemsList.textContent = indexFromDataAttribute;
-}
-
-//
+// 
 // EVENT LISTENERS AND INITIALISION
 //
 
 // Add the submit form handler
-todoForm.addEventListener("click", listClickHander);
+todoForm.addEventListener("submit", listClickHander);
 
 // Add the submit form handler
 todoForm.addEventListener("submit", addTodoItem);
+
 
 // Draw the list
 renderList(todoArray, todoList);
