@@ -34,10 +34,10 @@ function addTodoItem(e) {
 
 function listClickHander(event) {
   // Check if the click event is from a button or something else
-  if (event.target.type !== "submit") {
+  if (event.target.type !== "button") {
     return;
   }
-
+  console.log(hello);
   const indexFromDataAttribute = event.target.dataset.itemIndex;
 
   message.textContent = indexFromDataAttribute;
@@ -58,10 +58,9 @@ function renderList(items, itemsList) {
     const listItem = document.createElement("li");
     const buttonItem= document.createElement("button");
     listItem.textContent = items[i];
-    buttonItem.type="submit";
     buttonItem.id="todo";
-    buttonItem.textContent="button "+i;
-    buttonItem.value="button "+i;
+    buttonItem.textContent="button "+(i+1);
+    buttonItem.value="button "+(i+1);
     buttonItem.dataset.itemIndex = i;
     // On the last item in the list, add the annimation class
     if (i === items.length - 1) {
