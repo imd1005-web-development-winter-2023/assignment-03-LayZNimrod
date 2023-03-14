@@ -3,7 +3,7 @@
 //  You may remove the code below - it's just boilerplate
 //
 
-// Array of pokemons that are provided by the user
+// Array of todo that are provided by the user
 const todoArray = [];
 // The ul for the list of todo item
 const todoList = document.querySelector(".todo-items");
@@ -11,6 +11,7 @@ const todoList = document.querySelector(".todo-items");
 const todoForm = document.querySelector(".add-todo");
 // The form text element that has the name the user provided
 const todoName = document.querySelector("#todo-label");
+
 
 const message = document.querySelector(".message");
 
@@ -61,7 +62,7 @@ function renderList(items, itemsList) {
     const buttonItem= document.createElement("button");
     listItem.textContent = items[i];
     buttonItem.id="click";
-    buttonItem.type="button"
+    buttonItem.type="button";
     buttonItem.textContent="button "+(i+1);
     buttonItem.value="button "+(i+1);
   
