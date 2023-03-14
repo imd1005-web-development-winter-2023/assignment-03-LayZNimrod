@@ -24,9 +24,9 @@ function addTodoItem(e) {
   e.preventDefault();
   // Get the text from the input field
   const listEntry = todoName.value;
-  // Add the user defined pokemon to our array
+  // Add the user defined entry to our array
   todoArray.push(listEntry);
-  // Draw the list of pokemons
+  // Draw the list of todo
   renderList(todoArray, todoList);
   // Reset the form so that the text field name is cleared
   todoForm.reset();
@@ -37,6 +37,7 @@ function listClickHander(event) {
   if (event.target.type !== "BUTTON") {
     return;
   }
+  
   console.log(hello);
   const indexFromDataAttribute = event.target.dataset.itemIndex;
 
@@ -58,7 +59,7 @@ function renderList(items, itemsList) {
     const listItem = document.createElement("li");
     const buttonItem= document.createElement("button");
     listItem.textContent = items[i];
-    buttonItem.id="todo";
+    buttonItem.id="click";
     buttonItem.textContent="button "+(i+1);
     buttonItem.value="button "+(i+1);
     buttonItem.dataset.itemIndex = i;
@@ -74,10 +75,10 @@ function renderList(items, itemsList) {
 
 // 
 // EVENT LISTENERS AND INITIALISION
-//
+// 
 
 // Add the submit form handler
-todoForm.addEventListener("submit", listClickHander);
+todoForm.addEventListener("click", listClickHander);
 
 // Add the submit form handler
 todoForm.addEventListener("submit", addTodoItem);

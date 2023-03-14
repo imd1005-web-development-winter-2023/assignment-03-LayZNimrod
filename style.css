@@ -56,5 +56,14 @@ main {
 
 button{
   border-color: #1d3557;
+  background-color: aqua;
   border: 80px;
 }
+
+button:hover{
+  border-color: #1d3557;
+  color: beige;
+  background-color: rgb(4, 0, 255);
+  border: 80px;
+}
+
