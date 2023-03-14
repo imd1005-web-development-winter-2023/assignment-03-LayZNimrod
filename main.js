@@ -37,7 +37,7 @@ function listClickHander(event) {
   if (event.target.type !== "BUTTON") {
     return;
   }
-  
+
   console.log(hello);
   const indexFromDataAttribute = event.target.dataset.itemIndex;
 
@@ -60,8 +60,10 @@ function renderList(items, itemsList) {
     const buttonItem= document.createElement("button");
     listItem.textContent = items[i];
     buttonItem.id="click";
+    buttonItem.type="button"
     buttonItem.textContent="button "+(i+1);
     buttonItem.value="button "+(i+1);
+  
     buttonItem.dataset.itemIndex = i;
     // On the last item in the list, add the annimation class
     if (i === items.length - 1) {
