@@ -44,6 +44,7 @@ function listClickHander(event) {
   message.textContent = indexFromDataAttribute;
 }
 
+
 // Draw the list of items
 // Step 1: remove all of the children in the UL list
 // Step 2: for each entry in the array add the array item to the list
