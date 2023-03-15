@@ -12,6 +12,7 @@ const todoForm = document.querySelector(".add-todo");
 // The form text element that has the name the user provided
 const todoName = document.querySelector("#todo-label");
 
+const deleteButton = document.querySelector(".deleteButton");
 
 const message = document.querySelector(".message");
 
@@ -33,17 +34,20 @@ function addTodoItem(e) {
   todoForm.reset();
 }
 
-var indexFromDataAttribute=0;
+var indexFromDataAttribute=-1;
 
 function listClickHander(event) {
   // Check if the click event is from a button or something else
-  if (event.target.id !== "click") {
-    return;
+  if (event.target.id == "click") {
+    indexFromDataAttribute = event.target.dataset.itemIndex;
+
+    message.textContent = indexFromDataAttribute;
   }
 
-  indexFromDataAttribute = event.target.dataset.itemIndex;
+  if (event.target.id=="delete") {
+    todoList.removeChild(todoList.firstChild);
+  }
 
-  message.textContent = indexFromDataAttribute;
 }
 
 
