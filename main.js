@@ -33,14 +33,15 @@ function addTodoItem(e) {
   todoForm.reset();
 }
 
+var indexFromDataAttribute=0;
+
 function listClickHander(event) {
   // Check if the click event is from a button or something else
-  if (event.target.type !== "BUTTON") {
+  if (event.target.id !== "click") {
     return;
   }
 
-  console.log(hello);
-  const indexFromDataAttribute = event.target.dataset.itemIndex;
+  indexFromDataAttribute = event.target.dataset.itemIndex;
 
   message.textContent = indexFromDataAttribute;
 }
@@ -82,7 +83,7 @@ function renderList(items, itemsList) {
 // 
 
 // Add the submit form handler
-todoForm.addEventListener("click", listClickHander);
+addEventListener("click", listClickHander);
 
 // Add the submit form handler
 todoForm.addEventListener("submit", addTodoItem);
