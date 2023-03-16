@@ -34,7 +34,7 @@ function addTodoItem(e) {
   todoForm.reset();
 }
 
-var indexFromDataAttribute=-1;
+var indexFromDataAttribute=0;
 
 function listClickHander(event) {
   // Check if the click event is from a button or something else
@@ -42,10 +42,13 @@ function listClickHander(event) {
     indexFromDataAttribute = event.target.dataset.itemIndex;
 
     message.textContent = indexFromDataAttribute;
+
+    
   }
 
   if (event.target.id=="delete") {
-    todoList.removeChild(todoList.firstChild);
+    todoArray.splice(indexFromDataAttribute, 1);
+    renderList(todoArray, todoList);
   }
 
 }
@@ -63,22 +66,20 @@ function renderList(items, itemsList) {
   // For each item in the list add a list item
   for (let i = 0; i < items.length; i++) {
     // Create the list item and add the text
-    const listItem = document.createElement("li");
+    listItem = document.createElement("li");
     const buttonItem= document.createElement("button");
-    listItem.textContent = items[i];
     buttonItem.id="click";
     buttonItem.type="button";
-    buttonItem.textContent="button "+(i+1);
-    buttonItem.value="button "+(i+1);
-  
+    buttonItem.textContent=items[i];
     buttonItem.dataset.itemIndex = i;
     // On the last item in the list, add the annimation class
     if (i === items.length - 1) {
       listItem.classList.add("new-item-annimate");
     }
+    //append buttonItem to listItem
+    listItem.appendChild(buttonItem);
     // Add the list item to the list
     itemsList.appendChild(listItem);
-    itemsList.appendChild(buttonItem);
   }
 }
 

@@ -20,6 +20,7 @@
     <link rel="icon" href="./images/favicon/rocket.svg" type="image/svg+xml" />
   </head>
   <body>
+
     <!--
 
       ADD YOUR ASSIGNMENT 03 CODE
@@ -35,10 +36,11 @@
       - Have you conducted a code review and left a GitHub Issue on your team member's repo?
 
     -->
-    <main>
+    
+    <main class="page">
 
       <form class="add-todo">
-        <label for="todo-label"> Add something to do later:</label>
+        <li><label for="todo-label"> Add something to do later:</label>
         <input
           type="text"
           name="item"
@@ -46,15 +48,17 @@
           placeholder="Todo"
           required
         />
-        <input type="submit" value="Add Todo-Label" data-itemIndex=1 />
+        <input type="submit" value="Add To List" /></li>
       </form>
 
+      <li><label for="Todo Items">Todo List</label>
       <ul type="click" class="todo-items" >
-        <li>Loading Items...</li>
-      </ul>
+        
+      <li>Loading Items...</li>
+      </ul></li>
 
-      <p>You clicked on: <span class="message">(nothing yet)</span></p>
-      <input type="button" placeholder="delete selected" class="delete-button" id="delete">
+      <li><p>You clicked on: <span class="message">(nothing yet)</span></p>
+      <input type="button" value="Delete Selected" class="delete-button" id="delete"></li>  
     </main>
 
     <!-- This is where we add our awesome JavaScript code -->
