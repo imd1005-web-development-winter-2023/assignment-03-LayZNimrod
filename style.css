@@ -35,7 +35,8 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-width: 100%;
   min-height: 100%;
-  font-size: 17px;
+  font-size: 20px;
+  padding-top:50px;
   /* Flex directives */
   display: flex;
   flex-direction: column;
@@ -76,10 +77,17 @@ button:hover{
   background-color: #ca2800;
 }
 
-.input{
+input{
   background-color: #bdd7fc;
   border-color: #0c1829;
-  border-radius: 10px;
+  border-radius: 20px;
+  resize: none;
+}
+
+input:hover{
+  background-color: #e5eefa;
+  border-color: #0c1829;
+  border-radius: 20px;
   resize: none;
 }
 
@@ -89,33 +97,7 @@ label{
 
 /* Header uls */
 
-ul.header {
-  top: 0px;
-  height: 100px;
-  position: fixed;
-  font: bolder;
-  font-size: 20px;
-  background-color: #0E2D40;
-  color: #F2F2F2;
-  list-style: none;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-evenly;
-  display: flex;
-}
 
-ul.header a {
-  margin-top: 40;
-  color: #F2F2F2;
-  text-decoration-line: none;
-}
-
-ul.header img {
-  top: 0;
-  padding: 0px;
-  width: 110px;
-  height: auto;
-}
 
 /*
   Main and flex boxes
@@ -142,161 +124,6 @@ main {
   justify-content: center;
 }
 
-ul.flex1 h1  {
-  font-size:90px;
-  color:  #0c1829;
-}
-ul.flex1 p {
-  font-size: 20px;
-  color:  #0c1829;
-}
-
-ul.flex1 img{
-  margin-top: -150px;
-  width: 500px;
-  height: auto;
-}
-
-/* flex box 2 formatting */
-
-ul.flex2 {
-  border-radius: 20px;
-  padding-top: 30px;
-  padding:20px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-ul.flex2 h1 {
-  font-size:50px;
-  padding: 11px;
-  padding-top: 130px;
-  padding-bottom: 0px;
-}
-
-ul.flex2 h2 {
-  margin-top: 100px;
-  font-size:30px;
-  padding: 11px;
-  padding-bottom: 10px;
-}
-
-ul.flex2 img{
-  padding-top: 30px;
-  max-width: 500px;
-  min-width: 400px;
-  height: auto;
-  padding-bottom: 10px;
-}
-ul.flex2 p {
-  margin:0 auto;/* neccecery for some reason*/
-  align-self: center;
-  text-align: center;
-  max-width: 700px;
-}
-
-/* flex box 3 formatting */
-
-ul.flex3 {
-  color: #0c1829;
-  background-color: #68ABEA;
-  border-radius: 20px;
-  padding-top: 30px;
-  padding:20px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-ul.flex3 h1 {
-  font-size: 50px;
-  padding: 11px;
-  padding-bottom: 50px;
-  padding-top: 100px;
-}
-
-ul.flex3 h2 {
-  font-size: 30px;
-  padding: 11px;
-  padding-bottom: 10px;
-}
-
-ul.flex3 img{
-  padding-top: 0px;
-  max-width: 500px;
-  min-width: 400px;
-  height: auto;
-  
-}
-ul.flex3 p {
-  -webkit-text-stroke-width: 1px;
-  margin:0 auto;/* neccecery for some reason*/
-  align-self: center;
-  text-align: center;
-  max-width: 700px;
-  padding-bottom: 80px;
-}
-
-/* a quick ul to make Flex box rows */
-
-ul.makeRow {
-  padding: 20px;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-ul.flex3makeRow {
-  margin-bottom: -100px;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-/*
-  To keep things simple we just target the
-  footer directly. Here we are adding
-  padding to the top and bottom (nothing on the side)
-  and setting the background and text colours.
-*/
-
-ul.footer {
-  margin: 0 20px;
-  padding: 36px;
-  background-color: #1d3557;
-  color: #f1faee;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
-}
-
-ul.footer a{
-  color: #f1faee;
-}
-
-ul.footer img{
-  margin-top: -36px;
-  margin-bottom: -36px;
-  color: #f1faee;
-}
 
 body {
   text-align: center;

@@ -24,7 +24,8 @@ const message = document.querySelector(".message");
 function addTodoItem(e) {
   // Stop browser default form submission
   e.preventDefault();
-  // Get the text from the input field
+  // Get the text from the input field 
+  // Idea for double array from my friend
   const listEntry = [todoName.value, false];
   // Add the user defined entry to our array
   todoArray.push(listEntry);
@@ -43,12 +44,14 @@ function listClickHander(event) {
   // Check if the click event is from a button or something else
   if (event.target.id == "click") {
     indexFromDataAttribute = event.target.dataset.itemIndex;
+    // indexfromdataattribute was a string for some reason so I use parseInt to make it an Int found out through looking up "dataset to int javascript" into google and getting as an autofill "parseint javascript"
+    var newVal= (1+parseInt(indexFromDataAttribute));
 
-    message.textContent = indexFromDataAttribute;
+    message.textContent = newVal;
   }
 
   if (event.target.id=="late") {
-
+    
     todoArray[indexFromDataAttribute][1]=true;
     renderList(todoArray, todoList);
 
@@ -80,7 +83,7 @@ function renderList(items, itemsList) {
     buttonItem.id="click";
     buttonItem.type="button";
     buttonItem.name="button "+i;
-    buttonItem.textContent=items[i];
+    buttonItem.textContent=items[i][0];
     buttonItem.dataset.itemIndex = i;
 
     if (todoArray[i][1]===true) {
