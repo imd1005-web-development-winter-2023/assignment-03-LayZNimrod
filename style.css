@@ -51,6 +51,7 @@ button{
   border: none;
   background-color: #1d3557;
   color: #f1faee;
+  border-radius: 500px;
   text-decoration: none;
   justify-content: space-between;
 }
