@@ -25,9 +25,12 @@ function addTodoItem(e) {
   // Stop browser default form submission
   e.preventDefault();
   // Get the text from the input field
-  const listEntry = todoName.value;
+  const listEntry = [todoName.value, false];
   // Add the user defined entry to our array
   todoArray.push(listEntry);
+  //todoArray[todoArray.length-1].push(false);
+  //todoArray.at(todoArray.lastIndexOf).at(2)=false;
+
   // Draw the list of todo
   renderList(todoArray, todoList);
   // Reset the form so that the text field name is cleared
@@ -42,11 +45,14 @@ function listClickHander(event) {
     indexFromDataAttribute = event.target.dataset.itemIndex;
 
     message.textContent = indexFromDataAttribute;
-
-
   }
+
   if (event.target.id=="late") {
-    todoArray.at(indexFromDataAttribute).classList.add("buttonlate");
+
+    todoArray[indexFromDataAttribute][1]=true;
+    renderList(todoArray, todoList);
+
+    //document.querySelector("button[name='button "+indexFromDataAttribute+"']").classList.add("buttonlate");
   }
 
   if (event.target.id=="delete") {
@@ -73,8 +79,14 @@ function renderList(items, itemsList) {
     const buttonItem= document.createElement("button");
     buttonItem.id="click";
     buttonItem.type="button";
+    buttonItem.name="button "+i;
     buttonItem.textContent=items[i];
     buttonItem.dataset.itemIndex = i;
+
+    if (todoArray[i][1]===true) {
+      buttonItem.classList.add("buttonlate");
+    }
+
     // On the last item in the list, add the annimation class
     if (i === items.length - 1) {
       listItem.classList.add("new-item-annimate");
@@ -83,6 +95,7 @@ function renderList(items, itemsList) {
     listItem.appendChild(buttonItem);
     // Add the list item to the list
     itemsList.appendChild(listItem);
+    console.table(items);
   }
 }
 
