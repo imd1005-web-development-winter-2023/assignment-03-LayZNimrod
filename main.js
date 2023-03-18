@@ -43,7 +43,10 @@ function listClickHander(event) {
 
     message.textContent = indexFromDataAttribute;
 
-    
+
+  }
+  if (event.target.id=="late") {
+    todoArray.at(indexFromDataAttribute).classList.add("buttonlate");
   }
 
   if (event.target.id=="delete") {
@@ -92,7 +95,6 @@ addEventListener("click", listClickHander);
 
 // Add the submit form handler
 todoForm.addEventListener("submit", addTodoItem);
-
 
 // Draw the list
 renderList(todoArray, todoList);
