@@ -38,29 +38,29 @@
     -->
     
     <main class="page">
+      <ul class="add-todo">
+        <form>
+          <li><li><label for="todo-label"> Add something to do later:</label></li>
+          <input
+            type="text"
+            name="item"
+            id="todo-label"
+            placeholder="  Something To do"
+            required
+          />
+          <input type="submit" value="Add To List" /></li>
+        </form>
+      </ul>
+      <li><p>To Do List</p></li>
+      <ul class="todo-items" >
 
-      <form class="add-todo">
-        <li><li><label for="todo-label"> Add something to do later:</label></li>
-        <input
-          type="text"
-          name="item"
-          id="todo-label"
-          placeholder="  Something To do"
-          required
-        />
-        <input type="submit" value="Add To List" /></li>
-      </form>
-
-      <li><label for="Todo Items">Todo List</label>
-      <ul type="click" class="todo-items" >
-        
-      <li>Loading Items...</li>
-      </ul></li>
-
-      <li><p>You clicked on: <span class="message">(nothing yet)</span></p>
-      <input type="button" value="Delete Selected" class="delete-button" id="delete">
-      <input type="button" value="Running Late" class="late-button" id="late"></li>  </li>  
-
+        <li ><p>Loading Items...</p></li>
+      </ul>
+      <ul class="noliststyle">
+        <li><p>You clicked on: <span class="message">(nothing yet)</span></p>
+        <input type="button" value="Delete Selected" class="delete-button" id="delete">
+        <input type="button" value="Running Late" class="late-button" id="late"></li> 
+      </ul>
     </main>
 
     <!-- This is where we add our awesome JavaScript code -->

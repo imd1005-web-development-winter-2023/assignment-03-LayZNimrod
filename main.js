@@ -29,8 +29,10 @@ function addTodoItem(e) {
   const listEntry = [todoName.value, false];
   // Add the user defined entry to our array
   todoArray.push(listEntry);
-  //todoArray[todoArray.length-1].push(false);
-  //todoArray.at(todoArray.lastIndexOf).at(2)=false;
+
+
+  // used to reset value
+  document.querySelector("#todo-label").value=null;
 
   // Draw the list of todo
   renderList(todoArray, todoList);
