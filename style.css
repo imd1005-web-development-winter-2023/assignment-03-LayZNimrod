@@ -50,6 +50,7 @@
 button{
   border: none;
   background-color: #1d3557;
+  text-overflow: ellipsis;
   color: #f1faee;
   border-radius: 500px;
   text-decoration: none;
@@ -58,7 +59,6 @@ button{
 
 button:hover{
   background-color: #3a4f6d;
-
 }
 
 .buttonlate{
@@ -68,12 +68,10 @@ button:hover{
   color: #f1faee;
   text-decoration: none;
   border-radius: 50px;
-
 }
 
 .buttonlate:hover{
   background-color: #ca2800;
-
 }
 
 input{
@@ -81,7 +79,6 @@ input{
   border-color: #0c1829;
   border-radius: 20px;
   resize: none;
-
 }
 
 input:hover{
@@ -89,12 +86,10 @@ input:hover{
   border-color: #0c1829;
   border-radius: 20px;
   resize: none;
-
 }
 
 label{
   padding-bottom: 20px;
-
 }
 
 /* Header uls */
