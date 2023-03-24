@@ -53,22 +53,11 @@ button{
   background-color: #1d3557;
   text-overflow:inherit;
   color: #f1faee;
+  padding: 10px;
   border-radius: 500px;
   text-decoration: none;
   justify-content:center;
-}
-
-@media screen and (min-Width:300px){
-button{
-  max-width: 1500px;
-  border: none;
-  background-color: #1d3557;
-  
-  color: #f1faee;
-  border-radius: 500px;
-  text-decoration: none;
-  justify-content: space-between;
-}
+  word-break: break-word;
 }
 
 button:hover{
