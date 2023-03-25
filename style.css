@@ -80,6 +80,34 @@ button:hover{
   background-color: #ca2800;
 }
 
+.buttonselected{
+  max-width: 1500px;
+  border: none;
+  padding: 10px;
+  background-color: #4c8dff;
+  color: #f1faee;
+  text-decoration: none;
+  border-radius: 50px;
+}
+
+.buttonselected:hover{
+  background-color: #6098f9;
+}
+
+.buttonselectedlate{
+  max-width: 1500px;
+  border: none;
+  padding: 10px;
+  background-color: #f7912b;
+  color: #f1faee;
+  text-decoration: none;
+  border-radius: 50px;
+}
+
+.buttonselectedlate:hover{
+  background-color: #f8a34e;
+}
+
 input{
   background-color: #bdd7fc;
   border-color: #0c1829;
@@ -98,7 +126,6 @@ label{
   padding-bottom: 20px;
 }
 
-/* Header uls */
 
 
 
@@ -107,7 +134,7 @@ label{
 */
 
 main {
-  padding: 100px 50px;
+  padding: 100px;
   background-color: #0E2D40;
   color: #F2F2F2;
   
@@ -117,7 +144,6 @@ main {
 /* flex box 1 formatting */
 
  ul.todo-items {
-  
   background-color: #68ABEA;
   border-radius: 20px;
   padding: 20px;
@@ -129,14 +155,12 @@ main {
 }
 
 ul.noliststyle{
-  
   list-style: none;
 }
 
 ul.add-todo{
   list-style: none;
 }
-
 
 body {
   text-align: center;

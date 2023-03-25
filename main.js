@@ -26,10 +26,9 @@ function addTodoItem(e) {
   e.preventDefault();
   // Get the text from the input field 
   // Idea for double array from my friend
-  const listEntry = [todoName.value, false];
+  const listEntry = [todoName.value, false, false];
   // Add the user defined entry to our array
   todoArray.push(listEntry);
-
 
   // used to reset value
   document.querySelector("#todo-label").value=null;
@@ -47,15 +46,22 @@ function listClickHander(event) {
   if (event.target.id == "click") {
     indexFromDataAttribute = event.target.dataset.itemIndex;
     // indexfromdataattribute was a string for some reason so I use parseInt to make it an Int found out through looking up "dataset to int javascript" into google and getting as an autofill "parseint javascript"
-    var newVal= (1+parseInt(indexFromDataAttribute));
 
-    message.textContent = newVal;
+    todoArray[indexFromDataAttribute][2]=true;
+    renderList(todoArray, todoList);
   }
 
   if (event.target.id=="late") {
     
-    todoArray[indexFromDataAttribute][1]=true;
+    if (todoArray[indexFromDataAttribute][1]===false){
+      todoArray[indexFromDataAttribute][1]=true;
+    } else{
+      todoArray[indexFromDataAttribute][1]=false;
+    }
+
     renderList(todoArray, todoList);
+
+
 
     //document.querySelector("button[name='button "+indexFromDataAttribute+"']").classList.add("buttonlate");
   }
@@ -92,15 +98,28 @@ function renderList(items, itemsList) {
       buttonItem.classList.add("buttonlate");
     }
 
-    // On the last item in the list, add the annimation class
-    if (i === items.length - 1) {
-      listItem.classList.add("new-item-annimate");
+    if (todoArray[i][2]===true) {
+      buttonItem.classList.add("buttonselected");
     }
+    
+    if (todoArray[i][2]===true&&todoArray[i][1]===true){
+      buttonItem.classList.add("buttonselectedlate");
+    }
+
     //append buttonItem to listItem
     listItem.appendChild(buttonItem);
     // Add the list item to the list
     itemsList.appendChild(listItem);
     console.table(items);
+  }
+  for (let i = 0; i < items.length; i++) {
+    todoArray[i][2]=false;
+  }
+  
+  if (items.length===0){
+    const listItem = document.createElement("li");
+    listItem.textContent = "Add Something To The List";
+    itemsList.appendChild(listItem);
   }
 }
 
