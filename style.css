@@ -108,6 +108,21 @@ button:hover{
   background-color: #f8a34e;
 }
 
+.buttondone{
+  max-width: 1500px;
+  border: none;
+  padding: 10px;
+  background-color: #bacef1;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 50px;
+}
+
+.buttondone:hover{
+  background-color: #cbcbcb;
+  color: #000000;
+}
+
 input{
   background-color: #bdd7fc;
   border-color: #0c1829;

@@ -26,7 +26,7 @@ function addTodoItem(e) {
   e.preventDefault();
   // Get the text from the input field 
   // Idea for double array from my friend
-  const listEntry = [todoName.value, false, false];
+  const listEntry = [todoName.value, false, false, false];
   // Add the user defined entry to our array
   todoArray.push(listEntry);
 
@@ -57,6 +57,21 @@ function listClickHander(event) {
       todoArray[indexFromDataAttribute][1]=true;
     } else{
       todoArray[indexFromDataAttribute][1]=false;
+    }
+
+    renderList(todoArray, todoList);
+
+
+
+    //document.querySelector("button[name='button "+indexFromDataAttribute+"']").classList.add("buttonlate");
+  }
+
+  if (event.target.id=="done") {
+    
+    if (todoArray[indexFromDataAttribute][3]===false){
+      todoArray[indexFromDataAttribute][3]=true;
+    } else{
+      todoArray[indexFromDataAttribute][3]=false;
     }
 
     renderList(todoArray, todoList);
@@ -104,6 +119,9 @@ function renderList(items, itemsList) {
     
     if (todoArray[i][2]===true&&todoArray[i][1]===true){
       buttonItem.classList.add("buttonselectedlate");
+    }
+    if (todoArray[i][3]===true){
+      buttonItem.classList.add("buttondone");
     }
 
     //append buttonItem to listItem
